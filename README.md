@@ -6,7 +6,7 @@ Currently only the console and file appenders have been implemented.
 
 The microservices call a logging endpoint to store the log messages: a common client lib should be provided for each microservice to simplify the http (POST) request (eg in typsecript). This should also take into account that if the logging service call fails then it should fallback to console (for example).
 
-Further documentation and the design details can be found at [PaNOSC Portal Logging Service Design] (https://confluence.panosc.eu/x/-gDAAQ) page.
+Further documentation and the design details can be found at [PaNOSC Portal Logging Service Design](https://confluence.panosc.eu/x/-gDAAQ) page.
 
 ## Installation
 
