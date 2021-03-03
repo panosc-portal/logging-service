@@ -55,6 +55,8 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
             process.env.LOGGING_SERVICE_EMAIL_APPENDER_TLS != null
               ? process.env.LOGGING_SERVICE_EMAIL_APPENDER_TLS === 'true'
               : false,
+          username: process.env.LOGGING_SERVICE_EMAIL_APPENDER_USERNAME,
+          password: process.env.LOGGING_SERVICE_EMAIL_APPENDER_PASSWORD,
           to:
             process.env.LOGGING_SERVICE_EMAIL_APPENDER_TO != null
               ? process.env.LOGGING_SERVICE_EMAIL_APPENDER_TO.split(',')

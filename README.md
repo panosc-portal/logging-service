@@ -33,6 +33,8 @@ The following environment variables are used to configure the Logging Service an
 | LOGGING_SERVICE_EMAIL_APPENDER_PORT | 25 | |
 | LOGGING_SERVICE_EMAIL_APPENDER_SSL | true | |
 | LOGGING_SERVICE_EMAIL_APPENDER_TLS | false | |
+| LOGGING_SERVICE_EMAIL_APPENDER_USERNAME | NULL | |
+| LOGGING_SERVICE_EMAIL_APPENDER_PASSWORD | NULL | |
 | LOGGING_SERVICE_EMAIL_APPENDER_TO | [] | A comma separated list of email addresses |
 | LOGGING_SERVICE_EMAIL_APPENDER_FROM | NULL | |
 | LOGGING_SERVICE_EMAIL_APPENDER_SUBJECT | Error from portal app | |

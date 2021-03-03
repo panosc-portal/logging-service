@@ -39,8 +39,8 @@ export const buildLogger = function () {
             port: appender.port,
             ssl: appender.ssl,
             tls: appender.tls,
-            username: null,
-            password: null
+            username: appender.username,
+            password: appender.password
             //TODO check how to use the property formatter
           }));
           break;
