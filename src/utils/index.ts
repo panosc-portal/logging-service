@@ -1,3 +1,2 @@
-export * from './appender-factory';
-export * from './log-level-comparator';
+export * from './logger';
 

@@ -57,8 +57,14 @@
     "@loopback/rest": "^9.1.2",
     "@loopback/rest-explorer": "^3.0.6",
     "@loopback/service-proxy": "^3.0.6",
+    "@types/winston-mail": "^1.5.1",
+    "@types/winston-syslog": "^2.0.3",
     "dotenv": "^8.2.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "winston": "^3.3.3",
+    "winston-mail": "^2.0.0",
+    "winston-slack-webhook-transport": "^2.0.1",
+    "winston-syslog": "^2.4.4"
   },
   "devDependencies": {
     "@loopback/build": "^6.2.9",
