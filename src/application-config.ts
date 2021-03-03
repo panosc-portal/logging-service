@@ -45,8 +45,8 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
               ? process.env.LOGGING_SERVICE_EMAIL_APPENDER_ENABLED === 'true'
               : false,
           threshold: process.env.LOGGING_SERVICE_EMAIL_APPENDER_THRESHOLD || LogLevel.ERROR,
-          host: process.env.LOGGING_SERVICE_EMAIL_APPENDER_HOST || 'smtp.gmail.com',
-          port: process.env.LOGGING_SERVICE_EMAIL_APPENDER_PORT || 465,
+          host: process.env.LOGGING_SERVICE_EMAIL_APPENDER_HOST,
+          port: process.env.LOGGING_SERVICE_EMAIL_APPENDER_PORT || 25,
           ssl:
             process.env.LOGGING_SERVICE_EMAIL_APPENDER_SSL != null
               ? process.env.LOGGING_SERVICE_EMAIL_APPENDER_SSL === 'true'
@@ -58,8 +58,8 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
           to:
             process.env.LOGGING_SERVICE_EMAIL_APPENDER_TO != null
               ? process.env.LOGGING_SERVICE_EMAIL_APPENDER_TO.split(',')
-              : ['person1@domain.com', 'person2@domain.com'],
-          from: process.env.LOGGING_SERVICE_EMAIL_APPENDER_FROM || 'portal-app@domain.com',
+              : [],
+          from: process.env.LOGGING_SERVICE_EMAIL_APPENDER_FROM,
           subject: process.env.LOGGING_SERVICE_EMAIL_APPENDER_SUBJECT || 'Error from portal app',
           format: buildFormat(process.env.LOGGING_SERVICE_EMAIL_APPENDER_FORMAT || '%createdAt% %level% [%source%] - %msg%n')
         },
@@ -70,7 +70,7 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
               ? process.env.LOGGING_SERVICE_FILE_APPENDER_ENABLED === 'true'
               : false,
           threshold: process.env.LOGGING_SERVICE_FILE_APPENDER_THRESHOLD || LogLevel.INFO,
-          path: process.env.LOGGING_SERVICE_FILE_APPENDER_PATH || './loggin_service.log',
+          path: process.env.LOGGING_SERVICE_FILE_APPENDER_PATH || './logging_service.log',
           format: buildFormat(process.env.LOGGING_SERVICE_FILE_APPENDER_FORMAT || '%createdAt% %level% [%source%] - %msg%n')
         },
         {
