@@ -1,75 +1,31 @@
-# logging-service
+# Logging Service
 
-This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) with the
-[initial project layout](https://loopback.io/doc/en/lb4/Loopback-application-layout.html).
+The Logging service is designed to centralise logs from all micro services providing one or more appenders (console, file, syslog, email, database) to output a formatted log message.
 
-## Install dependencies
+Currently only the console and file appenders have been implemented.
 
-By default, dependencies were installed when this application was generated.
-Whenever dependencies in `package.json` are changed, run the following command:
+The microservices call a logging endpoint to store the log messages: a common client lib should be provided for each microservice to simplify the http (POST) request (eg in typsecript). This should also take into account that if the logging service call fails then it should fallback to console (for example).
+
+Further documentation and the design details can be found at [PaNOSC Portal Logging Service Design](https://confluence.panosc.eu/x/-gDAAQ) page.
+
+## Installation
 
 ```sh
 npm install
 ```
 
-To only install resolved dependencies in `package-lock.json`:
-
-```sh
-npm ci
-```
-
-## Run the application
+## Run
 
 ```sh
 npm start
 ```
 
-You can also run `node .` to skip the build step.
+## Environment variables
 
-Open http://127.0.0.1:3000 in your browser.
+The following environment variables are used to configure the Account Service and can be placed in a dotenv file:
 
-## Rebuild the project
-
-To incrementally build the project:
-
-```sh
-npm run build
-```
-
-To force a full build by cleaning up cached artifacts:
-
-```sh
-npm run rebuild
-```
-
-## Fix code style and formatting issues
-
-```sh
-npm run lint
-```
-
-To automatically fix such issues:
-
-```sh
-npm run lint:fix
-```
-
-## Other useful commands
-
-- `npm run migrate`: Migrate database schemas for models
-- `npm run openapi-spec`: Generate OpenAPI spec into a file
-- `npm run docker:build`: Build a Docker image for this application
-- `npm run docker:run`: Run this application inside a Docker container
-
-## Tests
-
-```sh
-npm test
-```
-
-## What's next
-
-Please check out [LoopBack 4 documentation](https://loopback.io/doc/en/lb4/) to
-understand how you can continue to add features to this application.
-
-[![LoopBack](https://github.com/strongloop/loopback-next/raw/master/docs/site/imgs/branding/Powered-by-LoopBack-Badge-(blue)-@2x.png)](http://loopback.io/)
+| Environment variable | Default value | Usage |
+| ---- | ---- | ---- |
+| LOGGIN_SERVICE_CONSOLE_APPENDER_THRESHOLD | INFO | The threshold of the console appender |
+| LOGGIN_SERVICE_FILE_APPENDER_THRESHOLD | INFO | The threshold of the file appender |
+| LOGGIN_SERVICE_FILE_APPENDER_PATH | ./logging_service.log | Path to the file to write the log to |
