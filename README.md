@@ -40,7 +40,7 @@ The following environment variables are used to configure the Logging Service an
 | LOGGING_SERVICE_EMAIL_APPENDER_USERNAME | NULL | |
 | LOGGING_SERVICE_EMAIL_APPENDER_PASSWORD | NULL | |
 | LOGGING_SERVICE_EMAIL_APPENDER_TO | [] | A comma separated list of email addresses |
-| LOGGING_SERVICE_EMAIL_APPENDER_FROM | NULL | wp4@panosc.eu|
+| LOGGING_SERVICE_EMAIL_APPENDER_FROM | wp4 email address | |
 | LOGGING_SERVICE_EMAIL_APPENDER_SUBJECT | Error from portal app | |
 | LOGGING_SERVICE_EMAIL_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the email appender |
 | LOGGING_SERVICE_SYSLOG_APPENDER_ENABLED | false | Enables the syslog appender |
