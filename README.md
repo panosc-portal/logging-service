@@ -27,7 +27,11 @@ The following environment variables are used to configure the Logging Service an
 | LOGGING_SERVICE_CONSOLE_APPENDER_ENABLED | true | Enables the console appender |
 | LOGGING_SERVICE_CONSOLE_APPENDER_THRESHOLD | INFO | The threshold of the console appender |
 | LOGGING_SERVICE_CONSOLE_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the console appender |
-| LOGGING_SERVICE_EMAIL_APPENDER_ENABLED | true | Enables the email appender |
+| LOGGING_SERVICE_FILE_APPENDER_ENABLED | false | Enables the file appender |
+| LOGGING_SERVICE_FILE_APPENDER_THRESHOLD | INFO | The threshold of the file appender |
+| LOGGING_SERVICE_FILE_APPENDER_PATH | ./logging_service.log | Path to the file to write the log to |
+| LOGGING_SERVICE_FILE_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the file appender |
+| LOGGING_SERVICE_EMAIL_APPENDER_ENABLED | false | Enables the email appender |
 | LOGGING_SERVICE_EMAIL_APPENDER_THRESHOLD | ERROR | The threshold of the email appender |
 | LOGGING_SERVICE_EMAIL_APPENDER_HOST | NULL | |
 | LOGGING_SERVICE_EMAIL_APPENDER_PORT | 25 | |
@@ -36,14 +40,17 @@ The following environment variables are used to configure the Logging Service an
 | LOGGING_SERVICE_EMAIL_APPENDER_USERNAME | NULL | |
 | LOGGING_SERVICE_EMAIL_APPENDER_PASSWORD | NULL | |
 | LOGGING_SERVICE_EMAIL_APPENDER_TO | [] | A comma separated list of email addresses |
-| LOGGING_SERVICE_EMAIL_APPENDER_FROM | NULL | |
+| LOGGING_SERVICE_EMAIL_APPENDER_FROM | NULL | wp4@panosc.eu|
 | LOGGING_SERVICE_EMAIL_APPENDER_SUBJECT | Error from portal app | |
 | LOGGING_SERVICE_EMAIL_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the email appender |
-| LOGGING_SERVICE_SLACK_APPENDER_ENABLED | true | Enables the slack appender |
-| LOGGING_SERVICE_SLACK_APPENDER_THRESHOLD | INFO | The threshold of the slack appender |
+| LOGGING_SERVICE_SYSLOG_APPENDER_ENABLED | false | Enables the syslog appender |
+| LOGGING_SERVICE_SYSLOG_APPENDER_THRESHOLD | INFO | The threshold of the syslog appender |
+| LOGGING_SERVICE_SYSLOG_APPENDER_HOST | NULL | |
+| LOGGING_SERVICE_SYSLOG_APPENDER_PORT | 514 | |
+| LOGGING_SERVICE_SYSLOG_APPENDER_PROTOCOL | udp4 | |
+| LOGGING_SERVICE_SYSLOG_APPENDER_FACILITY | local0 | |
+| LOGGING_SERVICE_SYSLOG_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the syslog appender |
+| LOGGING_SERVICE_SLACK_APPENDER_ENABLED | false | Enables the slack appender |
+| LOGGING_SERVICE_SLACK_APPENDER_THRESHOLD | ERROR | The threshold of the slack appender |
 | LOGGING_SERVICE_SLACK_APPENDER_WEBHOOK_URL | NULL | The webhook URL to send the log to |
 | LOGGING_SERVICE_SLACK_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the slack appender |
-| LOGGING_SERVICE_FILE_APPENDER_ENABLED | true | Enables the file appender |
-| LOGGING_SERVICE_FILE_APPENDER_THRESHOLD | INFO | The threshold of the file appender |
-| LOGGING_SERVICE_FILE_APPENDER_PATH | ./logging_service.log | Path to the file to write the log to |
-| LOGGING_SERVICE_FILE_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the file appender |

@@ -61,7 +61,7 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
             process.env.LOGGING_SERVICE_EMAIL_APPENDER_TO != null
               ? process.env.LOGGING_SERVICE_EMAIL_APPENDER_TO.split(',')
               : [],
-          from: process.env.LOGGING_SERVICE_EMAIL_APPENDER_FROM,
+          from: process.env.LOGGING_SERVICE_EMAIL_APPENDER_FROM || 'wp4@panosc.eu',
           subject: process.env.LOGGING_SERVICE_EMAIL_APPENDER_SUBJECT || 'Error from portal app',
           format: buildFormat(process.env.LOGGING_SERVICE_EMAIL_APPENDER_FORMAT || '%createdAt% %level% [%source%] - %msg%n')
         },
@@ -82,8 +82,9 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
               ? process.env.LOGGING_SERVICE_SYSLOG_APPENDER_ENABLED === 'true'
               : false,
           threshold: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_THRESHOLD || LogLevel.INFO,
-          host: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_HOST || 'syslog.domain.com',
-          port: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_PORT || 1234,
+          host: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_HOST,
+          port: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_PORT || 514,
+          protocol: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_PROTOCOL || 'udp4',
           facility: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_FACILITY || 'local0',
           format: buildFormat(process.env.LOGGING_SERVICE_SYSLOG_APPENDER_FORMAT || '%createdAt% %level% [%source%] - %msg%n'),
           timeZone: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_TIMEZONE || 'CET'
