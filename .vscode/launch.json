@@ -15,6 +15,18 @@
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "restart": true
+    },
+    {
+      "address": "localhost",
+      "localRoot": "${workspaceFolder}",
+      "name": "Remote Debug Logging service",
+      "port": 9234,
+      "remoteRoot": "/home/node/app/",
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
     }
   ]
 }

@@ -33,22 +33,22 @@ The following environment variables are used to configure the Logging Service an
 | LOGGING_SERVICE_FILE_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the file appender |
 | LOGGING_SERVICE_EMAIL_APPENDER_ENABLED | false | Enables the email appender |
 | LOGGING_SERVICE_EMAIL_APPENDER_THRESHOLD | ERROR | The threshold of the email appender |
-| LOGGING_SERVICE_EMAIL_APPENDER_HOST | NULL | |
-| LOGGING_SERVICE_EMAIL_APPENDER_PORT | 25 | |
-| LOGGING_SERVICE_EMAIL_APPENDER_SSL | true | |
-| LOGGING_SERVICE_EMAIL_APPENDER_TLS | false | |
-| LOGGING_SERVICE_EMAIL_APPENDER_USERNAME | NULL | |
-| LOGGING_SERVICE_EMAIL_APPENDER_PASSWORD | NULL | |
-| LOGGING_SERVICE_EMAIL_APPENDER_TO | [] | A comma separated list of email addresses |
-| LOGGING_SERVICE_EMAIL_APPENDER_FROM | wp4 email address | |
-| LOGGING_SERVICE_EMAIL_APPENDER_SUBJECT | Error from portal app | |
+| LOGGING_SERVICE_EMAIL_APPENDER_HOST | NULL | SMTP server hostname |
+| LOGGING_SERVICE_EMAIL_APPENDER_PORT | 25 | SMTP port |
+| LOGGING_SERVICE_EMAIL_APPENDER_SSL | true | Use ssl |
+| LOGGING_SERVICE_EMAIL_APPENDER_TLS | false | Use starttls |
+| LOGGING_SERVICE_EMAIL_APPENDER_USERNAME | NULL | User for server auth |
+| LOGGING_SERVICE_EMAIL_APPENDER_PASSWORD | NULL | Password for server auth |
+| LOGGING_SERVICE_EMAIL_APPENDER_TO | [] | A comma separated list of email addresses to send to |
+| LOGGING_SERVICE_EMAIL_APPENDER_FROM | wp4 email address | The address to send from |
+| LOGGING_SERVICE_EMAIL_APPENDER_SUBJECT | Error from portal app | Subject for email |
 | LOGGING_SERVICE_EMAIL_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the email appender |
 | LOGGING_SERVICE_SYSLOG_APPENDER_ENABLED | false | Enables the syslog appender |
 | LOGGING_SERVICE_SYSLOG_APPENDER_THRESHOLD | INFO | The threshold of the syslog appender |
-| LOGGING_SERVICE_SYSLOG_APPENDER_HOST | NULL | |
-| LOGGING_SERVICE_SYSLOG_APPENDER_PORT | 514 | |
-| LOGGING_SERVICE_SYSLOG_APPENDER_PROTOCOL | udp4 | |
-| LOGGING_SERVICE_SYSLOG_APPENDER_FACILITY | local0 | |
+| LOGGING_SERVICE_SYSLOG_APPENDER_HOST | NULL | The host running syslog |
+| LOGGING_SERVICE_SYSLOG_APPENDER_PORT | 514 | The port on the host that syslog is running on |
+| LOGGING_SERVICE_SYSLOG_APPENDER_PROTOCOL | udp4 | The network protocol to log over |
+| LOGGING_SERVICE_SYSLOG_APPENDER_FACILITY | local0 | Syslog facility to use |
 | LOGGING_SERVICE_SYSLOG_APPENDER_FORMAT | %createdAt% %level% [%source%] - %msg%n | The format of the syslog appender |
 | LOGGING_SERVICE_SLACK_APPENDER_ENABLED | false | Enables the slack appender |
 | LOGGING_SERVICE_SLACK_APPENDER_THRESHOLD | ERROR | The threshold of the slack appender |

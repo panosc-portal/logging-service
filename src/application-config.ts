@@ -1,4 +1,3 @@
-import {format} from 'winston';
 import {AppenderType, LogLevel} from './models/enumerations';
 
 export class ApplicationConfig {
@@ -11,19 +10,9 @@ export class ApplicationConfig {
 
 let applicationConfig: ApplicationConfig;
 
+const DEFAULT_FORMAT: string = '%createdAt% %level% [%source%] - %msg%n';
+
 export function APPLICATION_CONFIG(): ApplicationConfig {
-
-  let buildFormat = function (formatTemplate: string) {
-
-    return format.printf(function ({createdAt, level, application, message}) {
-
-      return formatTemplate
-        .replace("%createdAt%", createdAt)
-        .replace("%level%", level.toUpperCase())
-        .replace("%source%", application)
-        .replace("%msg%", message);
-    });
-  }
 
   if (applicationConfig == null) {
 
@@ -36,7 +25,7 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
               ? process.env.LOGGING_SERVICE_CONSOLE_APPENDER_ENABLED === 'true'
               : true,
           threshold: process.env.LOGGING_SERVICE_CONSOLE_APPENDER_THRESHOLD || LogLevel.INFO,
-          format: buildFormat(process.env.LOGGING_SERVICE_CONSOLE_APPENDER_FORMAT || '%createdAt% %level% [%source%] - %msg%n')
+          format: process.env.LOGGING_SERVICE_CONSOLE_APPENDER_FORMAT || DEFAULT_FORMAT
         },
         {
           type: AppenderType.EMAIL,
@@ -63,7 +52,7 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
               : [],
           from: process.env.LOGGING_SERVICE_EMAIL_APPENDER_FROM || 'wp4@panosc.eu',
           subject: process.env.LOGGING_SERVICE_EMAIL_APPENDER_SUBJECT || 'Error from portal app',
-          format: buildFormat(process.env.LOGGING_SERVICE_EMAIL_APPENDER_FORMAT || '%createdAt% %level% [%source%] - %msg%n')
+          format: process.env.LOGGING_SERVICE_EMAIL_APPENDER_FORMAT || DEFAULT_FORMAT
         },
         {
           type: AppenderType.FILE,
@@ -73,7 +62,7 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
               : false,
           threshold: process.env.LOGGING_SERVICE_FILE_APPENDER_THRESHOLD || LogLevel.INFO,
           path: process.env.LOGGING_SERVICE_FILE_APPENDER_PATH || './logging_service.log',
-          format: buildFormat(process.env.LOGGING_SERVICE_FILE_APPENDER_FORMAT || '%createdAt% %level% [%source%] - %msg%n')
+          format: process.env.LOGGING_SERVICE_FILE_APPENDER_FORMAT || DEFAULT_FORMAT
         },
         {
           type: AppenderType.SYSLOG,
@@ -86,7 +75,7 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
           port: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_PORT || 514,
           protocol: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_PROTOCOL || 'udp4',
           facility: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_FACILITY || 'local0',
-          format: buildFormat(process.env.LOGGING_SERVICE_SYSLOG_APPENDER_FORMAT || '%createdAt% %level% [%source%] - %msg%n'),
+          format: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_FORMAT || DEFAULT_FORMAT,
           timeZone: process.env.LOGGING_SERVICE_SYSLOG_APPENDER_TIMEZONE || 'CET'
         },
         {
@@ -97,7 +86,7 @@ export function APPLICATION_CONFIG(): ApplicationConfig {
               : false,
           threshold: process.env.LOGGING_SERVICE_SLACK_APPENDER_THRESHOLD || LogLevel.ERROR,
           webhookURL: process.env.LOGGING_SERVICE_SLACK_APPENDER_WEBHOOK_URL,
-          format: buildFormat(process.env.LOGGING_SERVICE_SLACK_APPENDER_FORMAT || '%createdAt% %level% [%source%] - %msg%n')
+          format: process.env.LOGGING_SERVICE_SLACK_APPENDER_FORMAT || DEFAULT_FORMAT
         }
       ]
     };
