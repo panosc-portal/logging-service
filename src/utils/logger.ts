@@ -11,7 +11,7 @@ export const buildLogger = function () {
   let _logger = winston.createLogger();
   let _errors: Array<string> = [];
 
-  let _get_correlationId = function (info: MessageDto) {
+  let getCorrelationId = function (info: MessageDto) {
 
     let correlationId: undefined | number = info.metadata?.correlationId;
     return correlationId ? ' ' + correlationId : '';
@@ -31,7 +31,7 @@ export const buildLogger = function () {
               return appender.format
                 .replace("%createdAt%", info.createdAt)
                 .replace("%level%", info.level.toUpperCase())
-                .replace("%source%", info.application + _get_correlationId(info))
+                .replace("%source%", info.application + getCorrelationId(info))
                 .replace("%msg%", info.message);
             })/*
             format: winston.format.combine(
@@ -53,7 +53,7 @@ export const buildLogger = function () {
               return appender.format
                 .replace("%createdAt%", info.createdAt)
                 .replace("%level%", info.level.toUpperCase())
-                .replace("%source%", info.application + _get_correlationId(info))
+                .replace("%source%", info.application + getCorrelationId(info))
                 .replace("%msg%", info.message);
             })
           }));
@@ -104,7 +104,7 @@ export const buildLogger = function () {
                 return appender.format
                   .replace("%createdAt%", info.createdAt)
                   .replace("%level%", info.level.toUpperCase())
-                  .replace("%source%", info.application + _get_correlationId(info))
+                  .replace("%source%", info.application + getCorrelationId(info))
                   .replace("%msg%", info.message);
               }
             }));
@@ -148,7 +148,7 @@ export const buildLogger = function () {
                   text: appender.format
                     .replace("%createdAt%", info.createdAt)
                     .replace("%level%", info.level.toUpperCase())
-                    .replace("%source%", info.application + _get_correlationId(info))
+                    .replace("%source%", info.application + getCorrelationId(info))
                     .replace("%msg%", info.message)
                 };
               }
