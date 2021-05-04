@@ -10,7 +10,7 @@ export class ApplicationConfig {
 
 let applicationConfig: ApplicationConfig;
 
-const DEFAULT_FORMAT: string = '%createdAt% %level% [%source%] - %msg%n';
+const DEFAULT_FORMAT: string = '%createdAt% %level% [%source%] - %msg%';
 
 export function APPLICATION_CONFIG(): ApplicationConfig {
 

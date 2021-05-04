@@ -1,6 +1,12 @@
 import {model, property} from '@loopback/repository';
 import {LogLevel} from '../../models/enumerations';
 
+class Metadata {
+
+  @property({type: 'number'})
+  correlationId?: number;
+}
+
 @model()
 export class MessageDto {
 
@@ -29,7 +35,7 @@ export class MessageDto {
   exception?: string;
 
   @property({type: 'Object'})
-  metadata?: Object;
+  metadata?: Metadata;
 
   constructor(data?: Partial<MessageDto>) {
     Object.assign(this, data);
