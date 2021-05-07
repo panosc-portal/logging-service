@@ -32,7 +32,7 @@ export const buildLogger = function () {
                 .replace("%createdAt%", info.createdAt)
                 .replace("%level%", info.level.toUpperCase())
                 .replace("%source%", info.application + getCorrelationId(info))
-                .replace("%msg%", info.message);
+                .replace("%msg%", info.message + (info.exception ? '\n' + info.exception : ''));
             })/*
             format: winston.format.combine(
               winston.format.colorize(),
@@ -54,7 +54,7 @@ export const buildLogger = function () {
                 .replace("%createdAt%", info.createdAt)
                 .replace("%level%", info.level.toUpperCase())
                 .replace("%source%", info.application + getCorrelationId(info))
-                .replace("%msg%", info.message);
+                .replace("%msg%", info.message + (info.exception ? '\n' + info.exception : ''));
             })
           }));
           break;
@@ -105,7 +105,7 @@ export const buildLogger = function () {
                   .replace("%createdAt%", info.createdAt)
                   .replace("%level%", info.level.toUpperCase())
                   .replace("%source%", info.application + getCorrelationId(info))
-                  .replace("%msg%", info.message);
+                  .replace("%msg%", info.message + (info.exception ? '\n' + info.exception : ''));
               }
             }));
           }
@@ -149,7 +149,7 @@ export const buildLogger = function () {
                     .replace("%createdAt%", info.createdAt)
                     .replace("%level%", info.level.toUpperCase())
                     .replace("%source%", info.application + getCorrelationId(info))
-                    .replace("%msg%", info.message)
+                    .replace("%msg%", info.message + (info.exception ? '\n' + info.exception : ''))
                 };
               }
             }));
